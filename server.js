@@ -1,4 +1,5 @@
 const express =  require("express");
+const nunjucks= require("nunjucks");
 const server = express();
 
 server.use(express.static("public"))
@@ -7,6 +8,11 @@ server.use(express.static("public"))
 //Criar a ROTA padrão do servidor
 //GET - do lado do servidor, serve para RECEBER os pedidos do cliente
 //configurar rota padrão "/"
+
+nunjucks.configure('views', {
+    autoescape: true,
+    express: server
+});
 
 server.get("/", function(req, res){
     return res.sendFile(__dirname + "/index.html")
