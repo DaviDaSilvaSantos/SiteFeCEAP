@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FeCEAP 2024 - Projetos</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.freepik.com/256/6886/6886075.png?semt=ais_hybrid"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body id="page-projects">
+    <div id="container">
+        <header>
+            <a href="/">
+                <img id="logo" src="FeCEAP-logoAlef2.svg" alt="FeCEAP-logo">
+            </a>
+            <nav>
+                <li><a href="/">Início</a></li>
+                <li><a href="#" class="button" onclick="onOff()">Novo Projeto</a></li>
+            </nav>
+        </header>
+        <section id="title">
+            <p>Em exibição</p>
+            <h1>Projetos</h1>
+        </section>
+        <main>
+            <section id="projects">
+                {% for projeto in projetos %}
+                <div class="project">
+                    <img src="{{ projeto.imagem }}" alt="{{ projeto.titulo }}">
+
+                    <div class="content">
+                        <h3>{{ projeto.titulo }}</h3>
+                        <p>{{ projeto.categoria }}</p>
+
+                        <div class="description">
+                            {{ projeto.descricao }}
+                        </div>
+                        <a href="{{ projeto.url }}">Ir para o projeto</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </section>
+        </main>
+        <footer>
+            Com ❤️ <a href="https://ceappedreira.org.br/" target="_blank">CEAP</a>
+        </footer>
+    </div>
+
+    <!-- MODAL -->
+    {% include "modal.html" %}
+    <script src="script.js"></script>
+</body>
+
+</html>
