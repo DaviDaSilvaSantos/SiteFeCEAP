@@ -1,77 +1,57 @@
-const express =  require("express");
-
-//1. IMPORTAÇÃO DO NUNJUCKS
-const nunjucks= require("nunjucks");
+const express = require("express");
 const server = express();
 
-server.use(express.static("public"))
+const nunjucks = require("nunjucks");
 
-//regras de negocio do nosso servidor
-//Criar a ROTA padrão do servidor
-//GET - do lado do servidor, serve para RECEBER os pedidos do cliente
-//configurar rota padrão "/"
-
-// 2. CONFIGURAR O NUNJUCKS
 nunjucks.configure("views", {
     express: server,
-    noCache: true, // Desativa o cache para atualizar a página assim que alterarmos o código
+    noCache: true,
 });
 
 server.use(express.static("public"));
 
 const projetos = [
     {
-        imagem: "https://cdn-icons-png.flaticon.com/128/9985/9985721.png",
-        titulo: "Por que a Terra NÃO é plana?",
-        categoria: "Ciências", 
-        descricao: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam aliquid repellat tempora illum unde hic dolorum doloribus ipsum quibusdam",
-        url: "#"
-    },
-    {
-        imagem: "https://cdn-icons-png.flaticon.com/128/3522/3522092.png",
+        imagem: "https://www.flaticon.com/svg/static/icons/svg/3408/3408545.svg",
         titulo: "O advento de battle royale, um estudo sobre Free Fire",
-        categoria: "Administração", 
+        categoria: "Administração",
         descricao: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam aliquid repellat tempora illum unde hic dolorum doloribus ipsum quibusdam",
         url: "#"
     },
     {
-        imagem: "https://cdn-icons-png.flaticon.com/128/2780/2780137.png",
+        imagem: "https://www.flaticon.com/premium-icon/icons/svg/560/560906.svg",
+        titulo: "Por que a Terra NÃO é plana?",
+        categoria: "Ciências",
+        descricao: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam aliquid repellat tempora illum unde hic dolorum doloribus ipsum quibusdam",
+        url: "#"
+    },
+    {
+        imagem: "https://www.flaticon.com/svg/static/icons/svg/560/560891.svg",
+        titulo: "Satélite caseiro",
+        categoria: "Engenharia",
+        descricao: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam aliquid repellat tempora illum unde hic dolorum doloribus ipsum quibusdam",
+        url: "#"
+    },
+    {
+        imagem: "https://www.flaticon.com/svg/static/icons/svg/1448/1448771.svg",
         titulo: "Como os Video Games inspiram nossa criatividade",
-        categoria: "Criatividade", 
+        categoria: "Criatividade",
         descricao: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam aliquid repellat tempora illum unde hic dolorum doloribus ipsum quibusdam",
         url: "#"
     },
     {
-        imagem: "https://cdn-icons-png.flaticon.com/128/2780/2780167.png",
-        titulo: "Novo projeto",
-        categoria: "Criatividade", 
-        descricao: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam aliquid repellat tempora illum unde hic dolorum doloribus ipsum quibusdam",
-        url: "#"
-    },
-    {
-        imagem: "https://cdn-icons-png.flaticon.com/128/2780/2780168.png",
-        titulo: "Projeto Mobilidade",
-        categoria: "Informática", 
-        descricao: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam aliquid repellat tempora illum unde hic dolorum doloribus ipsum quibusdam",
-        url: "#"
-    },
-    {
-        imagem: "https://cdn.awsli.com.br/1274/1274265/produto/225112206/oslbrady1--culos-de-sol-lovis-brady-frente-iwimfb0kb7.jpg",
-        titulo: "BAZE",
-        categoria: "Informática",
+        imagem: "https://www.flaticon.com/svg/static/icons/svg/2942/2942076.svg",
+        titulo: "Robótica na educação: construindo o futuro",
+        categoria: "Engenharia",
         descricao: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam aliquid repellat tempora illum unde hic dolorum doloribus ipsum quibusdam",
         url: "#"
     }
-
 ];
 
-// Rota Principal (Home)
 server.get("/", function (req, res) {
-    // Passamos um objeto de opções como segundo argumento { projetos }
     return res.render("index.html", { projetos });
 });
 
-// Rota de Todos os Projetos
 server.get("/projetos", function (req, res) {
     return res.render("projects.html", { projetos });
 });
