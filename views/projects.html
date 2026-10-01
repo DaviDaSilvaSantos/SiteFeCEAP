@@ -1,44 +1,38 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% set bodyId="page-projects" %} {% block content %}
+<header>
+  <a href="/">
+    <img id="logo" src="FeCEAP-logoAlef2.svg" alt="FeCEAP-logo" />
+  </a>
+  <nav>
+    <li><a href="/">Início</a></li>
+    <li><a href="#" class="button" onclick="onOff()">Novo Projeto</a></li>
+  </nav>
+</header>
 
-{% set bodyId="page-projects" %}
-{% block content %}
-        <header>
-            <a href="/">
-                <img id="logo" src="FeCEAP-logoAlef2.svg" alt="FeCEAP-logo">
-    
-            </a>
-            <nav>
-                <li><a href="/">Início</a></li>
-                <li><a href="#" class="button" onclick="onOff()">Novo Projeto</a></li>
-            </nav>
-        </header>
-    
-        <section id="title"> 
-            <p>em exibição</p>
-            <h1>Projetos</h1>
-        </section>
-    
-        <main>
-            <section id="projects">
-                {% for projeto in projetos %}
-                <div class="project">
-                    <img src="{{ projeto.imagem }}" alt="{{ projeto.titulo }}">
+<section id="title">
+  <p>em exibição</p>
+  <h1>Projetos</h1>
+</section>
 
-                    <div class="content">
-                        <h3>{{ projeto.titulo }}</h3>
-                        <p>{{ projeto.categoria }}</p>
+<main>
+  <section id="projects">
+    {% for projeto in projetos %}
+    <div class="project">
+      <img src="{{ projeto.imagem }}" alt="{{ projeto.titulo }}" />
 
-                        <div class="description">
-                            {{ projeto.descricao }}
-                        </div>
-                        <a href="{{ projeto.url }}">Ir para o projeto</a>
-                    </div>
-                </div>
-                {% endfor %}
-            </section>
-        </main>
-    
-        <footer>
-            Com ❤️ <a href="https://ceappedreira.org.br/" target="_blank">CEAP</a>
-        </footer>
-{% endblock %} 
+      <div class="content">
+        <h3>{{ projeto.titulo }}</h3>
+        <p>{{ projeto.categoria }}</p>
+
+        <div class="description">{{ projeto.descricao }}</div>
+        <a href="{{ projeto.url }}">Ir para o projeto</a>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+</main>
+
+<footer>
+  Com ❤️ <a href="https://ceappedreira.org.br/" target="_blank">CEAP</a>
+</footer>
+{% endblock %}
