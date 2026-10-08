@@ -30,7 +30,6 @@ server.get("/projetos", function (req, res) {
 });
 
 server.post("/", function (req, res) {
-  console.log(req.body);
   const query =
     "INSERT INTO projetos (imagem, titulo, categoria, descricao, url) VALUES(?, ?, ?, ?, ?);";
   const values = [
@@ -38,13 +37,23 @@ server.post("/", function (req, res) {
     req.body.title,
     req.body.category,
     req.body.description,
-    req.body.url,
+    req.body.link,
   ];
+
   bd.run(query, values, function (err, rows) {
     if (err) return console.log(err);
-    console.log(rows);
   });
-  return res.redirect("/projetos");
+  return res.redirect("/projetos"); 
+ 
 });
 
+server.post("/excluir/:id", function (req, res) {
+  const ID = req.params.id;
+  const query = "DELETE FROM projetos WHERE id = ?"
+  bd.run(query, ID, function (err){
+    if (err) return console.log(err)
+  });
+  return res.redirect("/projetos");
+  
+})
 server.listen(3000);

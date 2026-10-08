@@ -46,6 +46,11 @@
 
       <div class="description">{{ projeto.descricao }}</div>
       <a href="{{ projeto.url }}">Ir para o projeto</a>
+      
+      <form action="/excluir/{{ projeto.id }}" method="post"
+        onsubmit="return confirm('Excluir este projeto')">
+        <button class="button">Excluir</button>
+      </form>
     </div>
   </div>
   {% endfor %}
