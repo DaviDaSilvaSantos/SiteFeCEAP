@@ -1,16 +1,14 @@
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { MainContent } from "./components/MainContent";
+import styles from "./App.module.css";
 
-// named export
-export function App (){
-  return( 
-    <div>
+export function App() {
+  return (
+    <div className={styles.app}>
       <Header />
       <MainContent />
       <Footer />
     </div>
-  )
+  );
 }
-
-//export default App

@@ -1,8 +1,9 @@
-import style from "./Footer.module.css";
-export function Footer(){
-    return(
-        <footer className={style.Footer}>
-            <p>Desenvolvido por Davi da Silva</p>
-        </footer>
-    )
+import styles from "./Footer.module.css";
+
+export function Footer() {
+  return (
+    <footer className={styles.footer}>
+      <p>Desenvolvido por <b>Davi da Silva Santos</b></p>
+    </footer>
+  );
 }

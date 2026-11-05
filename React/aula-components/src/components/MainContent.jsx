@@ -1,8 +1,9 @@
-import style from "./MainContent.module.css"
-export function MainContent(){
-    return(
-        <main className={style.MainContent}>
-            <p>Olá! Eu sou Davi e tenho o profundo desejo de ser padre defendendo a fé que professo!</p>
-        </main>
-    )
+import styles from "./MainContent.module.css";
+
+export function MainContent() {
+  return (
+    <main className={styles.main}>
+      <p>Olá! Este é meu primeiro projeto desenvolvido com React.</p>
+    </main>
+  );
 }

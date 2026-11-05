@@ -1,0 +1,14 @@
+.main {
+    padding: 64px 40px;
+    background-color: #ffffff;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+}
+
+.main p {
+    max-width: 580px;
+    color: #536459;
+    font-size: 18px;
+    line-height: 1.9;
+}
