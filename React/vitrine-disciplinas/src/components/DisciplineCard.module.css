@@ -1,0 +1,47 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-left: 6px solid var(--cor-destaque);
+  border-radius: 10px;
+}
+
+.nome {
+  font-size: 1.3rem;
+  line-height: 1.25;
+  color: var(--cor-destaque);
+}
+
+.descricao {
+  color: var(--cor-texto);
+}
+
+.bloco {
+  padding-top: 14px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.rotulo {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--cor-texto-suave);
+  margin-bottom: 4px;
+}
+
+.conteudos {
+  font-size: 0.95rem;
+  color: var(--cor-texto);
+}
+
+.professor {
+  margin-top: auto;
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+}
+
+.professor strong {
+  color: var(--cor-texto);
+}

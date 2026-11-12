@@ -1,0 +1,12 @@
+.footer {
+  padding: 28px 24px;
+  text-align: center;
+  background-color: var(--cor-texto);
+  color: #ffffff;
+}
+
+.mensagem {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
