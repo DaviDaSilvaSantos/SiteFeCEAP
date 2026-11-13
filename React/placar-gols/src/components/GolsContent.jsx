@@ -1,20 +1,15 @@
 import { useState } from 'react';
+import styles from './GolsContent.module.css';
 
-export function Gols({time}){
-    const [placar, setPlacar] = useState(0); 
+export function Gols({time, urlImage, placar, onGol}){
  
-   function somargols() { 
-     setPlacar(placar + 1); 
-   } 
-
-      
 
     return(
-        <div>
-            <h2>Time {time}</h2>
+        <div className={styles.goltime}>
+            <h3>{time}</h3>
             <p>Placar: {placar}</p>
-            <button onClick={somargols}> 
-      </button>
+            <img src={urlImage} alt={time} width="200" height="200"/>
+            <button onClick={onGol}><b>Marque gols</b></button>
         </div>
     )
 }

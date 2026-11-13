@@ -1,0 +1,179 @@
+/* =========================================================
+   TEMA GLOBAL (variáveis CSS)
+   Troque os valores aqui e todo o projeto acompanha.
+   ========================================================= */
+:root {
+  --bg: #eef2f6;
+  --surface: #ffffff;
+  --text: #14202b;
+  --muted: #5b6b7a;
+  --border: #d9e1e8;
+  --shadow: 0 6px 20px rgba(20, 32, 43, 0.1);
+  --shadow-hover: 0 14px 32px rgba(20, 32, 43, 0.18);
+  --radius: 16px;
+  --primary: #2f6fb0;
+  --hero-from: #00853a;
+  --hero-to: #2f6fb0;
+  --footer-bg: #0d1218;
+  --footer-text: #e8eef3;
+  color-scheme: light dark;
+}
+
+/* Tema escuro automático (segue o sistema do usuário) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f141a;
+    --surface: #1a222b;
+    --text: #eef3f7;
+    --muted: #9fb0bf;
+    --border: #2a3541;
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    --shadow-hover: 0 14px 32px rgba(0, 0, 0, 0.65);
+    --primary: #74acdf;
+    --hero-from: #006b2e;
+    --hero-to: #1f4f86;
+    --footer-bg: #07090c;
+    --footer-text: #cfd9e2;
+  }
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+:global(body) {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* <div> raiz do App: coluna que ocupa a tela toda (rodapé fica embaixo) */
+:global(#root) > div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   HEADER (1º filho do App)
+   ========================================================= */
+:global(#root) > div > div:nth-child(1) {
+  padding: 2.5rem 1.5rem 3rem;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--hero-from), var(--hero-to));
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+:global(#root) > div > div:nth-child(1) h1 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  letter-spacing: 0.02em;
+}
+
+:global(#root) > div > div:nth-child(1) p {
+  margin: 0;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  opacity: 0.95;
+}
+
+/* =========================================================
+   PLACAR (2º filho do App)
+   ========================================================= */
+:global(#root) > div > div:nth-child(2) {
+  box-sizing: border-box;
+  width: calc(100% - 3rem);
+  max-width: 520px;
+  margin: -1.6rem auto 1.75rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+:global(#root) > div > div:nth-child(2) h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+:global(#root) > div > div:nth-child(2) p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* =========================================================
+   ÁREA DOS TIMES + TEMA POR TIME
+   ========================================================= */
+.gols {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2.5rem;
+}
+
+.gols > div {
+  flex: 1 1 0;
+  display: flex;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* 1º time: Brasil */
+.gols > div:nth-child(1) {
+  --team-main: #00853a;
+  --team-accent: #ffdf00;
+  --team-on: #ffffff;
+  --team-soft: rgba(0, 133, 58, 0.12);
+}
+
+/* 2º time: Argentina */
+.gols > div:nth-child(2) {
+  --team-main: #74acdf;
+  --team-accent: #ffffff;
+  --team-on: #0b2a4a;
+  --team-soft: rgba(116, 172, 223, 0.22);
+}
+
+@media (prefers-color-scheme: dark) {
+  .gols > div:nth-child(1) {
+    --team-main: #1fb35a;
+    --team-on: #04210f;
+    --team-soft: rgba(31, 179, 90, 0.18);
+  }
+}
+
+/* Dinâmico: ao passar o mouse em um time, o outro recua */
+.gols:has(> div:hover) > div:not(:hover) {
+  opacity: 0.7;
+  transform: scale(0.98);
+}
+
+/* Celular: times um embaixo do outro */
+@media (max-width: 640px) {
+  .gols {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(body),
+  :global(#root) > div > div:nth-child(2),
+  .gols > div {
+    transition: none;
+  }
+  .gols:has(> div:hover) > div:not(:hover) {
+    transform: none;
+  }
+}

@@ -1,0 +1,39 @@
+/* Placar final (mesmo estilo/tema definido em App.module.css).
+   Usa as variáveis globais --surface, --border, --shadow, --muted e --radius. */
+.placar {
+  box-sizing: border-box;
+  width: calc(100% - 3rem);
+  max-width: 520px;
+  margin: -1.6rem auto 1.75rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  color: var(--text, #14202b);
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, #d9e1e8);
+  border-radius: var(--radius, 16px);
+  box-shadow: var(--shadow, 0 6px 20px rgba(0, 0, 0, 0.1));
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.p span{
+  color: blue;
+}
+
+.placar h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.placar p {
+  margin: 0;
+  color: var(--muted, #5b6b7a);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .placar {
+    transition: none;
+  }
+}

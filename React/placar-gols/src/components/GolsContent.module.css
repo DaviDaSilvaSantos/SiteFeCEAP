@@ -1,0 +1,93 @@
+/* Card de cada time.
+   As cores vêm das variáveis --team-* definidas em App.module.css
+   (Brasil = 1º time, Argentina = 2º time). */
+.goltime {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.5rem 1rem 1.75rem;
+  background: var(--surface, #ffffff);
+  color: var(--text, #14202b);
+  border-top: 8px solid var(--team-main, var(--primary, #2f6fb0));
+  border-radius: var(--radius, 16px);
+  box-shadow: var(--shadow, 0 6px 20px rgba(0, 0, 0, 0.1));
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.3s ease;
+}
+
+.goltime:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover, 0 14px 32px rgba(0, 0, 0, 0.2));
+}
+
+.goltime h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+}
+
+/* "Placar: N" em formato de pílula com a cor do time */
+.goltime p {
+  margin: 0;
+  padding: 0.35rem 1.1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  background: var(--team-soft, rgba(47, 111, 176, 0.12));
+  border: 1px solid var(--team-main, var(--primary, #2f6fb0));
+  border-radius: 999px;
+}
+
+.goltime img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.goltime:hover img {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.goltime button {
+  margin-top: auto;
+  padding: 0.75rem 1.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--team-on, #ffffff);
+  background: var(--team-main, var(--primary, #2f6fb0));
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.22);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.2s ease;
+}
+
+.goltime button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.22);
+}
+
+.goltime button:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.22);
+}
+
+.goltime button:focus-visible {
+  outline: 3px solid var(--text, #14202b);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .goltime,
+  .goltime img,
+  .goltime button {
+    transition: none;
+  }
+  .goltime:hover,
+  .goltime:hover img {
+    transform: none;
+  }
+}

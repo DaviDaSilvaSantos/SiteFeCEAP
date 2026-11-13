@@ -1,4 +1,17 @@
 .footer {
-    background-color: black;
-    color: white;
+  margin-top: auto;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--footer-text, white);
+  background-color: var(--footer-bg, black);
+  border-top: 4px solid var(--hero-from, #00853a);
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer b {
+  color: #ffdf00;
 }
