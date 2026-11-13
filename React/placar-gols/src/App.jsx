@@ -4,8 +4,8 @@ import { Gols } from "./components/GolsContent"
 import { Footer } from "./components/Footer";
 import { Placar } from "./components/PlacarContent";
 import styles from "./App.module.css"
-import brasil from "./components/images/brasil.png";
 import argentina from "./components/images/argentina.png";
+import brasil from "./components/images/brasil.png"
 
 export function App() {
 

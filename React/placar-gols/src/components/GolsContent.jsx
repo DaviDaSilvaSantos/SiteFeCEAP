@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './GolsContent.module.css';
 
 export function Gols({time, urlImage, placar, onGol}){
